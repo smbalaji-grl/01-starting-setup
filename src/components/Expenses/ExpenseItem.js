@@ -6,9 +6,9 @@ import React,{useState} from "react";
 
 export default function ExpenseItem(props){
 const [title_,setTitle_]= useState(props.title);
+console.log("execution count");
 const clickHandler=()=>{
 setTitle_("updated");
-console.log(title_);
 };
     return(
         <Card className="expense-item">
