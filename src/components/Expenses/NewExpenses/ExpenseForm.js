@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //The useState hook should be called at the top level of your functional component and not inside the event handler functions.
   // below are using individal state
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -19,7 +19,7 @@ const ExpenseForm = () => {
     //setUserInput_({ ...userInput_, enteredTitle: event.target.value });
 
     // this method is alternative. since react update state by scheulding. pass function to state function
-    //it will first return previous sate and update new one with instant (reacts gaurted)
+    //it will first return previous sate and update new one with instant (reacts gaurted
     // setUserInput_((prevState) => {
     //   return { ...prevState, enteredTitle: event.target.value };
     // });
@@ -47,11 +47,11 @@ const ExpenseForm = () => {
     console.log(event.target.value);
   };
 
-  const inputChangeHandler = (Identifier, value) => {
-    if ((Identifier === "title", value)) setEnteredTitle(value);
-    else if (Identifier === "amount") setEnteredAmount(value);
-    else setEnteredDate(value);
-  };
+  // const inputChangeHandler = (Identifier, value) => {
+  //   if ((Identifier === "title", value)) setEnteredTitle(value);
+  //   else if (Identifier === "amount") setEnteredAmount(value);
+  //   else setEnteredDate(value);
+  // };
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
@@ -59,7 +59,8 @@ const ExpenseForm = () => {
       amount: enterAmount,
       Date: new Date(enterDate),
     };
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
+    //console.log(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
