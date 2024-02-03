@@ -25,7 +25,7 @@ const ExpenseForm = (props) => {
     // });
 
     setEnteredTitle(event.target.value);
-    console.log(event.target.value);
+    //console.log(event.target.value);
   };
 
   const amountChangeHandler = (event) => {
@@ -35,7 +35,7 @@ const ExpenseForm = (props) => {
     // setUserInput_((prevState) => {
     //   return { ...prevState, enterAmount: event.target.value };
     // });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
   const dateChangeHandler = (event) => {
     // setUserInput_({ ...userInput_, enterDate: event.target.value });
@@ -44,7 +44,7 @@ const ExpenseForm = (props) => {
     // setUserInput_((prevState) => {
     //   return { ...prevState, enterDate: event.target.value };
     // });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   // const inputChangeHandler = (Identifier, value) => {
@@ -93,8 +93,8 @@ const ExpenseForm = (props) => {
           <input
             type="date"
             value={enterDate}
-            min={"2023-01-01"}
-            max={"2024-01-26"}
+            min={"2021-01-01"}
+            max={"2024-12-03"}
             // onChange={(event)=> inputChangeHandler("date",event.target.value)}
             onChange={dateChangeHandler}
           />

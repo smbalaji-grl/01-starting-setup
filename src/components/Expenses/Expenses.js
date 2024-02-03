@@ -5,15 +5,15 @@ import { useState } from "react";
 import ExpensesFilter from "./ExpenseFilter";
 
 const Expenses = (props) => {
-  const [filterYear, setFilterYear] = useState("2019");
+  const [filterYear, setFilterYear] = useState("2021");
 
-  let filterInfoText = "2020,2021 & 2022";
-  if (filterYear === "2020") {
-    filterInfoText = "2019, 2021 & 2022";
-  } else if (filterYear === "2021") {
-    filterInfoText = "2019, 2020 & 2022";
+  let filterInfoText = "2022,2023 & 2024";
+  if (filterYear === "2022") {
+    filterInfoText = "2021, 2023 & 2024";
+  } else if (filterYear === "2023") {
+    filterInfoText = "2021, 2022 & 2024";
   } else {
-    filterInfoText = "2019, 2020 & 2021";
+    filterInfoText = "2021, 2022 & 2023";
   }
   const filterYearHandler = (selectedYear) => {
     setFilterYear(selectedYear);
@@ -21,33 +21,21 @@ const Expenses = (props) => {
 
   return (
     <div>
-      <ExpensesFilter
-        selected={filterYear}
-        onChangeFilter={filterYearHandler}
-      />
-      <p>data for years {filterInfoText}is hidden.</p>
       <Card className="expenses">
-        <ExpenseItem
-          title={props.items[0].title}
-          amount={props.items[0].amount}
-          date={props.items[0].date}
+        <ExpensesFilter
+          selected={filterYear}
+          onChangeFilter={filterYearHandler}
         />
-        <ExpenseItem
-          title={props.items[1].title}
-          amount={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          title={props.items[2].title}
-          amount={props.items[2].amount}
-          date={props.items[2].date}
-        />
-        <ExpenseItem
-          title={props.items[3].title}
-          amount={props.items[3].amount}
-          date={props.items[3].date}
-        />
-        ;
+        <p>data for years {filterInfoText}is hidden.</p>
+        {props.items.map((x) => (
+          <ExpenseItem
+            title={x.title}
+            amount={x.amount}
+            date={new Date(x.date)}
+          />
+          // date: new Date(2023, 5, 12),
+        ))}
+        ; ;
       </Card>
     </div>
   );
