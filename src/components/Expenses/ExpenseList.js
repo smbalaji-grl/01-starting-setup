@@ -12,7 +12,7 @@ const ExpenseList = (props) => {
           key={expense.id}
           title={expense.title}
           amount={expense.amount}
-          date={new Date(expense.date)}
+          date={expense.date}
         />
       ))}
     </ul>
